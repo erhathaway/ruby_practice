@@ -1,0 +1,84 @@
+body {
+  background-color: #ECFE05
+}
+.title_container {
+  border: 1px solid black;
+  background-color: #EFFD3B;
+  height: 80px;
+  width: 100%;
+}
+.title_container > h1 {
+  float: none;
+  font: small-caps 500 25px /1.2 courier;
+  text-align: center;
+}
+
+.selection_container > form {
+  margin-top: 10px;
+  height: 60px;
+  width: 100%
+}
+
+.selection_container > form > input {
+  float: left;
+  color: yellow;
+  background-color: #202D25;
+  height: 50px;
+  width: 33.3%;
+  font: small-caps 500 25px /1.2 courier;
+  border: 0px;
+  border-left: solid #ECFE05 1px;
+  border-right: solid #ECFE05 1px;
+}
+
+.status_container{
+  background: #EFFD3B;
+  border: 1px solid black;
+  height: 450px;
+
+}
+.status_container p{
+  /*font: small-caps 300 25px /1.2 courier;*/
+  font: 1.2px;
+}
+.status_container a{
+  font: small-caps 300 25px /1.2 courier;
+  font-size: 150px;
+}
+.round_status p{
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 50px;
+  height: 20px;
+}
+.computer_games{
+  float: left;
+  width: 50%;
+  text-align: center;
+}
+.player_games{
+  float:right;
+  width: 50%;
+  text-align: center;
+}
+
+.round_info_left{
+  background-color: #202D25;
+  color: #EFFD3B;
+  border: 2px solid black;
+  border-left: 0px;
+  width:55%;
+  margin-right: 40%;
+  margin-left: 20px;
+}
+
+.round_info_right{
+  background-color: #202D25;
+  color: #EFFD3B;
+  border: 2px solid black;
+  border-right: 0px;
+  width:55%;
+  margin-left: 40%;
+  margin-right: 20px;
+}
