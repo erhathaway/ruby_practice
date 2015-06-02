@@ -1,8 +1,5 @@
 require "sinatra"
 require_relative "game"
-require 'pry'
-require "openssl"
-
 
 set :sessions, true
 
@@ -12,10 +9,10 @@ use Rack::Session::Cookie, {
 }
 
 get '/' do
-  redirect '/form'
+  redirect '/game'
 end
 
-get '/form' do
+get '/game' do
   if  session[:player_score] == nil || session[:computer_score] == nil
     session[:player_score]=0
     session[:computer_score]=0
@@ -25,16 +22,16 @@ get '/form' do
 
   end
 
-  erb :'form'
+  erb :'game'
 end
 
-post '/form/answer' do
+post '/game/answer' do
 
   answer = params['answer']
 
   if answer == nil
     session[:message]= ['You forgot to choose a tool you fool',"",""]
-    redirect '/form'
+    redirect '/game'
   end
   result = play(answer, session[:player_score], session[:computer_score])
   if result[0] == nil
@@ -51,5 +48,5 @@ post '/form/answer' do
     session[:computer_score]=0
   end
     session[:message] = result[1]
-   redirect '/form'
+   redirect '/game'
 end

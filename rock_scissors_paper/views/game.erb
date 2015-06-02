@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RPS</title>
+    <link rel="stylesheet" href="/css/index.css">
+  </head>
+
+  <body>
+    <div class='title_container'><h1>Welcome to Paper Rock Scissor</h1></div>
+    <div class ='selection_container'>
+      <form action="/game/answer" method="post">
+        <input type='submit' name='answer' value='rock' />
+        <input type='submit' name='answer' value='paper' />
+        <input type='submit' name='answer' value='scissors' />
+      </form>
+    </div>
+
+    <div class='status_container'>
+      <div class='round_status'><p><%= session[:message][0] %> </p></div>
+      <div class='computer_games'>
+        <div class='round_info_left'>
+          <p><h3>Computer</h3></p>
+          <p><%=session[:message][2] %></p>
+          <p><%= session[:computer_score] %> point(s)</p>
+        </div>
+        <a><%= session[:computer_games] %></a>games lost
+      </div>
+      <div class='player_games'>
+        <div class='round_info_right'>
+          <p><h3>Player</h3></p>
+          <p><%=session[:message][1] %></p>
+          <p><%= session[:player_score] %> point(s)</p>
+        </div>
+        <a><%= session[:player_games] %></a>games won
+      </div>
+    </div>
+  </body>
+</html>
