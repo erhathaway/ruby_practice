@@ -1,0 +1,26 @@
+<h1><%= @title %></h1>
+
+<h1><%= "#{group.name}" %></h1>
+<div class="group_summary"><%= group.description%></div>
+
+
+
+<% events.each do |event| %>
+	<div class="group_users">
+		<h2><%= event.event_name %></h2>
+		<p><%= event.location%></p>
+	</div>
+<% end %>
+
+
+<% users.each do |user| %>
+	<div class="group_users">
+		<h2><a href="/user/<%= user.id %>"><%= "#{user.username}" %></a></h2>
+		<p><%= user.email%></p>
+		<p><%= user.avatar_url%></p>		
+		<p><%= user.provider%></p>		
+	</div>
+<% end %>
+
+
+

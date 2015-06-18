@@ -1,0 +1,9 @@
+<h1><%= @title %></h1>
+
+
+<% groups.each do |group| %>
+	<div class="group">
+		<h2><a href="/group/<%= group.id %>"><%= "#{group.name}" %></a></h2>
+		<div class="group_summary"><%= group.description%></div>
+	</div>
+<% end %>
