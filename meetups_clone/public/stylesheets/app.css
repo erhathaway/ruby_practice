@@ -49,4 +49,22 @@ a:visited {
 
 }
 
-.group:hover { background-color: black };
+.group:hover { background-color: black; }
+
+#group_name {
+    /*float: right;*/
+    width: 800px;
+    height: 20px;
+    margin: 1px;
+    /*display: block;*/
+    border: 2px solid black;
+    text-align: center;
+}
+
+#join_group {
+  background-color: black;
+}
+
+#leave_group {
+  background-color: black;
+}

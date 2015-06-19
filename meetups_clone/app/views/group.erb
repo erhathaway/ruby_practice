@@ -1,26 +1,16 @@
-<h1><%= @title %></h1>
+<div class="meetup_group">
+	<h1><%= @title %></h1>
 
-<h1><%= "#{group.name}" %></h1>
-<div class="group_summary"><%= group.description%></div>
+	<div id="group_name" data-group-id=<%="#{group.id}"%>><%= "#{group.name}" %></div>
 
-
-
-<% events.each do |event| %>
-	<div class="group_users">
-		<h2><%= event.event_name %></h2>
-		<p><%= event.location%></p>
+	<div id="group_user_status">
+		<button type="button" id="group_status_button"></button>
 	</div>
-<% end %>
 
+	<div id="group_summary"><%= group.description%></div>
 
-<% users.each do |user| %>
-	<div class="group_users">
-		<h2><a href="/user/<%= user.id %>"><%= "#{user.username}" %></a></h2>
-		<p><%= user.email%></p>
-		<p><%= user.avatar_url%></p>		
-		<p><%= user.provider%></p>		
-	</div>
-<% end %>
+	<div id="group_events"></div>
 
-
+	<div id="group_users"></div>
+<div>
 
