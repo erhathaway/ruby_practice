@@ -51,20 +51,52 @@ a:visited {
 
 .group:hover { background-color: black; }
 
-#group_name {
+#group_header {
     /*float: right;*/
-    width: 800px;
-    height: 20px;
+    padding-top: 20px;
+    width: 100%;
+    height: 80px;
     margin: 1px;
+    background-color: black;
     /*display: block;*/
-    border: 2px solid black;
+    border: 2px solid white;
     text-align: center;
 }
 
-#join_group {
+#group_name {
+    font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  text-align: center;
+}
+#group_user_status{
+  display: block;
+  float:right;
+  /*width: 150px;*/
+  margin-right: 20px;
+  text-align: center;
+}
+#group_summary{
+  display: block;
+  margin-left: 20px;
+  float:left;
+
+  text-align: center;
+}
+
+#group_status_button {
   background-color: black;
 }
 
-#leave_group {
+#events_body {
+  padding-top: 20px;
+  margin-top: 20px;
+  width: 100%;
+  height: 200px;
+  margin: 1px;
   background-color: black;
+  /*display: block;*/
+  border: 2px solid white;
+  text-align: center;
 }
+

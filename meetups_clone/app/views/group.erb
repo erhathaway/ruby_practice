@@ -1,16 +1,20 @@
 <div class="meetup_group">
 	<h1><%= @title %></h1>
 
-	<div id="group_name" data-group-id=<%="#{group.id}"%>><%= "#{group.name}" %></div>
+	<div id="group_header">
+		<div id="group_name" data-group-id=<%="#{group.id}"%>><%= "#{group.name}" %></div>
 
-	<div id="group_user_status">
-		<button type="button" id="group_status_button"></button>
+		<div id="group_user_status">
+			<button type="button" id="group_status_button">A Button</button>
+		</div>
+		<div id="group_summary"><%= group.description%></div>
 	</div>
 
-	<div id="group_summary"><%= group.description%></div>
-
-	<div id="group_events"></div>
-
+	<div id="events_body">
+		<h3>Events</h3>
+		<div id="group_events"></div>
+	</div>
+	<h3>Members</h3>
 	<div id="group_users"></div>
 <div>
 

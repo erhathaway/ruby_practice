@@ -6,64 +6,59 @@ $(document).ready(function() {
 		  	data: { group_id: group_id },
 		    url: "/data",
 		    dataType: "json",
-
-		    success: function(data) {
-
-		      var group_status = data.group_status;
-		      var group = data.group;
-		      var users = data.users;
-		      var group_events = data.group_events;
-
-		          // return { status: 'joined', group: group, users: users, events: events }.json
-		      var group_user_status = $('#group_user_status');
-		      var group_summary = $('#group_summary');
-		      var group_users = $('#group_users');
-
-		      group_events.forEach(function(group_event){
-		      	$('#group_events').append('<div><h3>'+group_event.event_name+'</h3></div>');
-		      	$('#group_events').append('<div>'+group_event.location+'</div>');
-		      })
-
-		      users.forEach(function(user){
-		      	$('#group_users').append('<div><h5>'+user.username+'</h5></div>');
-		      })
-		      // debugger
-
-		      if (group_status === 'joined'){
-		      	$("#group_status_button").text('Leave Group');
-		      	$("#group_status_button").attr('onclick', 'leaveGroup()');
-		      };
-		      if (group_status === 'visitor'){
-		      	$("#group_status_button").text('Join Group');
-		      	$("#group_status_button").attr('onclick', 'joinGroup()');
-		      };
-		    },
-		    error: function() {
-		      alert("in the error block :( ")
-		      // do something else
-		    }
+		    success: function(data) {groupPageLoad(data)},
+		    error: function() {alert("in the error block :( ")}
 	  	});
 	};
+})
 
 
+function groupPageLoad(data){
+	var group_id = $('#group_name').data("groupId")
+	var group_status = data.group_status;
+	var group = data.group;
+	var users = data.users;
+	var group_events = data.group_events;
 
-});
+	  // return { status: 'joined', group: group, users: users, events: events }.json
+	var group_user_status = $('#group_user_status');
+	var group_summary = $('#group_summary');
+	var group_users = $('#group_users');
+
+	$('#group_events').empty()
+	group_events.forEach(function(group_event){
+		$('#group_events').append('<div><h3>'+group_event.event_name+'</h3></div>');
+		$('#group_events').append('<div>'+group_event.location+'</div>');
+	});
+
+	$('#group_users').empty()
+	users.forEach(function(user){
+		$('#group_users').append('<div><h5>'+user.username+'</h5></div>');
+	});
+	// debugger
+
+	if (group_status === 'joined'){
+		$("#group_status_button").text("Leave Group"); 
+		$("#group_status_button").attr('onClick', 'leaveGroup()'); 
+	};
+	if (group_status === 'visitor'){
+		$("#group_status_button").text("Join Group");
+		$("#group_status_button").attr('onClick', 'joinGroup()');
+	};
+};
+
 
 function joinGroup(){
+	var group_id = $('#group_name').data("groupId")
 	$.ajax({
 	    type: "POST",
 	    url: "/group/join",
 	    data: { group_id: group_id },
 	    dataType: "json",
-	   	success: function(response){
-	   	// debugger
-	   	console.log(response)
-	   	},
-	    error: function() {
-	      alert("Sorry something went wrong");
-	    }
+	   	success: function(data){groupPageLoad(data);},
+	    error: function() {alert("Sorry something went wrong");}
 	});
-});
+};
 
 function leaveGroup(){
   	var group_id = $('#group_name').data( "groupId" )
@@ -72,16 +67,12 @@ function leaveGroup(){
 	    url: "/group/leave",
 	    data: { group_id: group_id },
 	    dataType: "json",
-	   	success: function(response){
-	   	// debugger
-	   			   	console.log(response)
-
-	   	},
+	   	success: function(data){groupPageLoad(data);},
 	    error: function() {
 	      alert("Sorry something went wrong");
 	    }
 	});
-});
+};
 
 // $(document).ready(function() {
 //   $.ajax({
