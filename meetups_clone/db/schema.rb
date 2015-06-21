@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20150616212946) do
     t.string   "meetup_group_id", null: false
     t.string   "location",        null: false
     t.text     "description"
-    t.datetime "date"
+    t.text     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

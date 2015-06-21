@@ -5,7 +5,7 @@ class CreateMeetupEvents < ActiveRecord::Migration
        t.string :meetup_group_id, null: false
        t.string :location, null: false
        t.text :description
-       t.datetime :date
+       t.text :date
 
        t.timestamps
      end

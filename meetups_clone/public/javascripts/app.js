@@ -27,8 +27,17 @@ function groupPageLoad(data){
 
 	$('#group_events').empty()
 	group_events.forEach(function(group_event){
-		$('#group_events').append('<div><h3>'+group_event.event_name+'</h3></div>');
-		$('#group_events').append('<div>'+group_event.location+'</div>');
+		if (group_event.date ===  null){group_event.date = 'TBA'}
+		if (group_event.description ===  null){group_event.description = ''}
+		// debugger
+
+		$('#group_events').append('<div class="group_event_item">'+
+			'<div class="remove_event">x</div>'+
+			'<div id="group_event_name"><h3>'+group_event.event_name+'</h3></div>'+
+			'<div id="group_event_location">'+'Location: '+group_event.location+'</div>'+
+			'<div id="group_event_date">'+'On: '+group_event.date+'</div>'+
+			'<div id="group_event_description">'+group_event.description+'</div>'+
+			'</div');
 	});
 
 	$('#group_users').empty()

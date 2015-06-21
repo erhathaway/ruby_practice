@@ -147,7 +147,7 @@ post "/group/leave" do
   # binding.pry
   if user_in_group?(group_id)
     GroupUser.where(user_id: current_user.id, group_id: group_id).destroy_all
-    return { group_status: 'visitor', group: get_group(group_id), users: [], group_events: group_events(group_id) }.to_json
+    return { group_status: 'visitor', group: get_group(group_id), users: [], group_events: []}.to_json
   else
     return { error: "You shouldn't have done that..."}.to_json
   end
