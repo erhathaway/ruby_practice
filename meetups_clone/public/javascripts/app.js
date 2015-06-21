@@ -7,7 +7,7 @@ $(document).ready(function() {
 		    url: "/data",
 		    dataType: "json",
 		    success: function(data) {groupPageLoad(data)},
-		    error: function() {alert("in the error block :( ")}
+		    error: function() {alert("Error!")}
 	  	});
 	};
 })
@@ -71,6 +71,37 @@ function leaveGroup(){
 	    error: function() {
 	      alert("Sorry something went wrong");
 	    }
+	});
+};
+
+function eventCreate(){
+	$("#add_event").css("display", "block");
+};
+
+function eventCancel(){
+	$("#add_event").css("display", "none");
+};
+
+function eventSubmit(){
+	var event_name = $('#event_name').val()
+	var event_description = $('#event_description').val()
+	var event_location = $('#event_location').val()
+	var event_date = $('#event_date').val()
+
+	$("#add_event").css("display", "none");
+
+ 	var group_id = $('#group_name').data( "groupId" )
+	$.ajax({
+	    type: "POST",
+	    url: "/event/new",
+	    data: { group_id: group_id, 
+	    	event_name: event_name, 
+	    	event_location: event_location, 
+	    	event_description: event_description,
+	    	event_date: event_date },
+	    dataType: "json",
+	   	success: function(data){groupPageLoad(data);},
+	    error: function() {alert("Something went wrong");}
 	});
 };
 

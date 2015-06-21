@@ -169,3 +169,25 @@ get "/data" do
   end
 end
 
+post "/event/new" do
+
+  group_id = params[:group_id].to_i
+
+  if user_in_group?(group_id)
+    group = get_group(group_id)
+    events = group_events(group_id)
+    users = group_users(group_id)
+    MeetupEvent.create(
+      event_name: params[:event_name], 
+      meetup_group_id: group_id, 
+      location: params[:event_location],
+      description: params[:event_description],
+      date: params[:event_date]
+      )
+      return { group_status: 'joined', group: group, users: users, group_events: events }.to_json
+  else
+    return {error: 'could not create event'}.to_json
+  end
+
+end
+

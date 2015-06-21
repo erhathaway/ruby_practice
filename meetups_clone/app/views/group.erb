@@ -4,17 +4,53 @@
 	<div id="group_header">
 		<div id="group_name" data-group-id=<%="#{group.id}"%>><%= "#{group.name}" %></div>
 
-		<div id="group_user_status">
-			<button type="button" id="group_status_button">A Button</button>
-		</div>
+		<% if signed_in? %>
+			<div id="group_user_status">
+				<button type="button" id="group_status_button">A Button</button>
+			</div>
+		<% end %>
 		<div id="group_summary"><%= group.description%></div>
 	</div>
 
 	<div id="events_body">
+		<% if signed_in? %>
+			<button type="button" id="event_create_button" onclick="eventCreate()">Create Event</button>
+		<% end %>
 		<h3>Events</h3>
 		<div id="group_events"></div>
 	</div>
+	<% if signed_in? %>
 	<h3>Members</h3>
-	<div id="group_users"></div>
+		<div id="group_users"></div>
+	<% end %>
 <div>
 
+
+
+<!--Add Event -->
+<div id="add_event">
+	<form class="form" action="#" id="event_form">
+		<h3>Create a new Event</h3>
+		<hr/>
+		<label>Name: </label>
+
+		<input type="text" class="event_form" id="event_name" placeholder="Event Name"/>
+
+		<label>Description:</label>
+
+		<textarea type="text" class="event_form" id="event_description" placeholder="Description"/></textarea>
+
+		<label>Location:</label>
+
+		<input type="text" class="event_form" id="event_location" placeholder="Location"/>
+
+		<label>Date:</label>
+
+		<input type="text" class="event_form" id="event_date" placeholder="Date"/>
+
+		<input type="button" class="event_form event_button" id="submit_event" value="Create Event" onclick="eventSubmit()" />
+
+		<input type="button" class="event_form event_button" id="cancel_submission_event" value="x" onclick="eventCancel()" />
+
+	</form>
+</div>
