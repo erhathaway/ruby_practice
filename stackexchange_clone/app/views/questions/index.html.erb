@@ -1,0 +1,29 @@
+    <div id="front_page_title">Top Questions    
+      <!-- <hr></hr> -->
+    </div>
+
+    <table id="question_left_container">
+<!--       <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Time</th>
+      </tr> -->
+
+      <% @questions.each do |question| %>
+        <tr>
+            <td id=<%= "question_"+ question.id.to_s %> class="question question_title"><%= link_to truncate(question.title, :length => 40), question_path(question.id) %></td>
+        </tr>
+        <tr>
+            <td class="question question_content"><%= truncate(question.question, :length => 80)%></td>
+            <td class="question question_time">
+              <% q = question.created_at %>
+              <%= q.strftime("Asked on %d of %B at %I:%M%p") %> </td>
+
+<!--           </div> -->
+        </tr>
+      <% end %>
+    </table>
+
+    <div id="question_right_container">
+      <%= link_to 'New Question', new_question_path %>
+    </div>

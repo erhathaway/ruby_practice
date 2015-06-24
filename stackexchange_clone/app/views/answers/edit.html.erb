@@ -1,0 +1,8 @@
+<div class="title">Edit Answer</div>
+
+<%= form_for [@question, @answer] do |f| %>
+  <%= f.label :answer, class: 'form form_label'%>
+  <%= f.text_area :answer, class: 'form form_textarea' %>
+
+  <%= f.submit "Update Answer", class: 'form form_button' %>
+<% end %>

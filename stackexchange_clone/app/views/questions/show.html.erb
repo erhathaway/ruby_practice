@@ -1,0 +1,40 @@
+    <div id="question_title"><%= @question.title %></div>
+    <hr id="question_title_horizontal"></hr>
+
+    <div id="question_left_container"> 
+    	<div id="question_text"><%= markdown(@question.question) %></div>
+    </div>
+    <div id="question_right_container"> 
+    	<div id="question_time"><%= @time %></div>
+		<%= link_to "Edit", edit_question_path, class: 'answer_modifiers edit_question' %>
+		<%= link_to "Delete", question_path, method: :delete, class: 'answer_modifiers delete_question' %>
+		<%= link_to "New Answer", new_question_answer_path(@question.id), class: 'answer_modifiers' %>
+    </div>
+
+    <div id="answer_header">Answers
+    	<div>
+    		<hr></hr>
+    	</div>
+    </div>
+
+
+
+
+
+	<% @answers.each do |answer| %>
+		<div class="answer">
+		    <div class="answer_left_container"> 
+				<div><%= markdown(answer.answer) %> </div>
+				<hr></hr>
+			</div>
+			<div class="answer_right_container"> 
+				<%= link_to "Edit Answer", edit_answer_path(answer.id), class: 'answer_modifiers edit_answer' %>
+				<%= link_to "Delete Answer", answer_path(answer.id), method: :delete, class: 'answer_modifiers delete_answer' %>
+			</div>
+
+		</div>
+
+
+
+	<% end %>
+

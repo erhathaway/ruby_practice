@@ -1,0 +1,8 @@
+<div class="title">New Answer for <%= @question.title %></div>
+
+<%= form_for [@question, @answer] do |f| %>
+  <%= f.label :answer, class: 'form form_label'%>
+  <%= f.text_field :answer, class: 'form form_textarea' %>
+
+  <%= f.submit "Submit Answer" , class: 'form form_button'%>
+<% end %>

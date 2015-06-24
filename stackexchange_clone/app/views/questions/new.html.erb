@@ -1,0 +1,12 @@
+  <div class="title">New Question</div>
+
+  <%= form_for @question do |f| %>
+    <%= f.label :title, class: 'form form_label'%>
+    <%= f.text_area :title, class: 'form form_textfield'%>
+
+    <%= f.label :question, class: 'form form_label' %>
+    <%= f.text_area :question, class: 'form form_textarea' %>
+
+    <%= f.submit "Ask Question", class: 'form form_button' %>
+  <% end %>
+</div>

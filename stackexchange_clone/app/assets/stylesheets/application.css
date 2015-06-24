@@ -1,0 +1,157 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require foundation_and_overrides
+
+ */
+
+/*.question_container{
+	display: inline-block;
+	width: 100%;
+}*/
+/*.question {
+	display: block;
+	float: left;
+	margin-right: 20px;
+	vertical-align: bottom;
+	height: 30px;
+}*/
+
+/*.question_time {
+	float: right;
+}*/
+
+#front_page_title{
+	display: block;
+	float: left;
+	font-size: 30px;
+	margin-left: 8%;
+	margin-top: 30px;
+	width: 84%;
+}
+
+#front_page_question_table{
+	display: inline-block;	
+	margin-left: 8%;
+	width: 60%;
+}
+
+#question_title {
+	display: inline-block;
+	font-size: 30px;
+	margin-top: 30px;
+	margin-left: 8%;
+	margin-right: 8%;
+	word-wrap: break-word;
+}
+
+#question_title_horizontal{
+	margin-left: 8%;
+	margin-right: 8%;
+
+}
+
+#question_left_container {
+	display: block;
+	float: left;
+	margin-top: 20px;
+	margin-left: 8%;
+	width: 60%;
+	word-wrap: break-word;
+}
+
+#question_right_container {
+	display: block;
+	float: right;
+	margin-top: 20px;
+	margin-right: 8%;
+	width: 20%;
+	text-align: right;
+}
+
+.answer_left_container {
+	display: block;
+	float: left;
+	margin-top: 20px;
+	margin-left: 8%;
+	width: 60%;
+	word-wrap: break-word;
+}
+
+.answer_right_container {
+	display: block;
+	float: right;
+	margin-top: 20px;
+	margin-right: 8%;
+	width: 20%;
+	text-align: right;
+}
+
+#answer_header {
+	/*display: inline-block;*/
+	/*position: absolute;*/
+	font-size: 20px;
+	font: bold;
+	margin-top: 20px;
+	float: left;
+  	width: 80%;
+  	margin-left: 8%;
+}
+
+
+#question_time{
+	margin-bottom: 10px;
+}
+.question_title {
+	font-size: 20px;
+}
+
+.answer_modifiers {
+	display: block;
+	float: right;
+	/*border: 1px solid black;*/
+	margin: 2px;
+	padding: 5px;
+}
+
+.answer_modifiers:hover{
+	background-color: rgba(0,0,0, 0.8);
+}
+
+.title {
+	font-size: 25px;
+	margin-left: 8%;
+	margin-top: 30px;
+}
+
+.form_label {
+	font-size: 20px;
+	margin-top: 20px;
+	width: 84%;
+	word-wrap: break-word;
+}
+
+.form_textarea{
+	width: 84%;
+	height: 200px;
+}
+
+.form_textfield{
+	width: 84%;
+}
+
+.form{
+	margin-left: 8%;
+	margin-right: 8%;	
+}
