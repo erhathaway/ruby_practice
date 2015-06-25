@@ -28,9 +28,10 @@
 	height: 30px;
 }*/
 
-/*.question_time {
+.question_time {
 	float: right;
-}*/
+	margin-top: 20px;
+}
 
 #front_page_title{
 	display: block;
@@ -62,12 +63,29 @@
 
 }
 
-#question_left_container {
+#question_vote_container {
 	display: block;
 	float: left;
 	margin-top: 20px;
 	margin-left: 8%;
+	width: 8%;
+	word-wrap: break-word;
+}
+
+#question_left_container {
+	display: block;
+	float: left;
+	margin-top: 20px;
 	width: 60%;
+	word-wrap: break-word;
+}
+
+#question_table{
+	display: block;
+	float: left;
+	margin-top: 20px;
+	margin-left: 8%;
+	width: 70%;
 	word-wrap: break-word;
 }
 
@@ -76,7 +94,7 @@
 	float: right;
 	margin-top: 20px;
 	margin-right: 8%;
-	width: 20%;
+	width: 10%;
 	text-align: right;
 }
 
@@ -112,9 +130,12 @@
 
 #question_time{
 	margin-bottom: 10px;
+	display: block;
+	float:right;
 }
 .question_title {
-	font-size: 20px;
+	font-size: 15px;
+	/*margin-left: 0px;*/
 }
 
 .answer_modifiers {
@@ -142,6 +163,12 @@
 	word-wrap: break-word;
 }
 
+
+.form{
+	margin-left: 8%;
+	margin-right: 8%;	
+}
+
 .form_textarea{
 	width: 84%;
 	height: 200px;
@@ -149,9 +176,77 @@
 
 .form_textfield{
 	width: 84%;
+		margin-left: 8%;
+	margin-right: 8%;	
 }
 
-.form{
+
+
+
+.question_stats {
+	width: 25%;
+	/*font-size: 15px;*/
+}
+
+.question_stats p{
+	margin-bottom: 0px;
+	/*font-size: 15px;*/
+}
+
+.stats_title {
+	font-size: 10px;
+}
+
+.question_stat{
+	display:block;
+	float:left;
 	margin-left: 8%;
-	margin-right: 8%;	
+	margin-right: 8%;
+	text-align: center;
+}
+
+.question_content{
+	display: block;
+}
+
+.tag {
+	display: block;
+	float: left;
+	margin-right: 10px;
+	margin-top: 20px;
+	border: 1px solid black;
+	padding: 2px;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+.tag:hover{
+	background-color: rgba(0,0,0, 0.5);
+}
+
+.top_question_container{
+	width: 100%;
+}
+
+.left_question_container{
+	display: block;
+	float: left;
+	width: 70%;
+}
+
+.right_question_container{
+	display: block;
+	float: right;
+	width: 30%;
+}
+
+.arrows {
+	font-size: 40px;
+	margin-left: 40px;
+}
+.votes {
+	font-size: 40px;
+	margin-top: -10px;
+	margin-bottom: -10px;
+	margin-left: 47px;
 }

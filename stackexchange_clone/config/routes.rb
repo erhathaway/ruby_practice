@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :questions, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :answers, only: [:index, :new, :create]
+    resources :tags, only: [:create]
   end
 
 

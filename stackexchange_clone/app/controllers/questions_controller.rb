@@ -6,38 +6,56 @@ class QuestionsController < ApplicationController
 
 	def show
 		@question = Question.where(id: params[:id])[0]
+		views = @question.views +=1
+		@question.update(views: views)
 		@time = format_time(@question.created_at)
 		@answers = @question.answers.order(created_at: :desc)
 	end
 
 	def new
 		@question = Question.new
+		@tag = Tag.new
 	end
 
 	def create
 		@question = Question.new(question_params)
+		tags = params[:question][:tag].values[0].split(" ")
+
+
 		if @question.save
+			# binding.pry
+			tags.each do |tag|
+				new_tag = Tag.find_or_create_by(tag: tag)
+				QuestionTag.find_or_create_by(question_id: @question.id, tag_id: new_tag.id)
+			end
 			flash[:notice] = 'Question added.'
 			redirect_to '/questions'
-		elsif question_params['title'].length < 40
-			flash[:notice] = 'Please make the question title longer than 40 characters'
-			render :new
-		elsif question_params['question'].length < 150
-			flash[:notice] = 'Please make the question contents longer than 150 characters'
-			render :new
 		else
-			flash[:notice] = 'You did something wrong'
+			flash[:notice] = @question.errors.full_messages
 			render :new
 		end
 	end
 
 	def edit
 		@question = Question.find(params[:id])
+		tags = @question.tags
+		# binding.pry
+		@tags = ""
+		tags.each do |tag|
+			@tags += tag.tag + " "
+		end
+
 	end
 
 	def update
 		question = Question.find(params[:id])
 		# binding.pry
+		tags = params[:question][:tag].split(" ")
+		QuestionTag.where(question_id: question.id).destroy_all
+		tags.each do |tag|
+			new_tag = Tag.find_or_create_by(tag: tag)
+			QuestionTag.find_or_create_by(question_id: question.id, tag_id: new_tag.id)
+		end
 		question.update(question_params)
 		redirect_to '/questions/'+question.id.to_s
 	end

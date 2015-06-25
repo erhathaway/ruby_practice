@@ -1,8 +1,18 @@
     <div id="question_title"><%= @question.title %></div>
     <hr id="question_title_horizontal"></hr>
 
+    <div id="question_vote_container"> 
+    	<a class="arrows">&#8657;</a>
+    	<p class="votes"><%= @question.votes %></p>
+    	<a class="arrows">&#8659;</a>
+    </div>
     <div id="question_left_container"> 
     	<div id="question_text"><%= markdown(@question.question) %></div>
+        <div class="left_question_container">
+        	<% @question.tags.each do |tag| %>
+          		<div class="tag"><%= tag.tag %></div>
+        	<% end %>
+     	</div>
     </div>
     <div id="question_right_container"> 
     	<div id="question_time"><%= @time %></div>
@@ -16,9 +26,6 @@
     		<hr></hr>
     	</div>
     </div>
-
-
-
 
 
 	<% @answers.each do |answer| %>

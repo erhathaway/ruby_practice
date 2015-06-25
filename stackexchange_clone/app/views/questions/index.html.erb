@@ -2,7 +2,7 @@
       <!-- <hr></hr> -->
     </div>
 
-    <table id="question_left_container">
+    <table id="question_table">
 <!--       <tr>
         <th>Name</th>
         <th>Description</th>
@@ -10,17 +10,49 @@
       </tr> -->
 
       <% @questions.each do |question| %>
-        <tr>
+<!--         <tr>
             <td id=<%= "question_"+ question.id.to_s %> class="question question_title"><%= link_to truncate(question.title, :length => 40), question_path(question.id) %></td>
-        </tr>
-        <tr>
-            <td class="question question_content"><%= truncate(question.question, :length => 80)%></td>
-            <td class="question question_time">
-              <% q = question.created_at %>
-              <%= q.strftime("Asked on %d of %B at %I:%M%p") %> </td>
+        </tr> -->
+        <tr id=<%= "question_"+ question.id.to_s %> class="question ">
+            <td class="quesiton question_stats">
+              <div class="question_stat">
+                <p><%= question.votes %></p><p class="stats_title">Votes</p> </div>
+              <div class="question_stat"><p>
+                <%= question.answers.count %></p><p class="stats_title">Answers</p></div>
+              <div class="question_stat"><p>
+                <%= question.views %></p><p class="stats_title">Views</p></div>
+            </td>
 
-<!--           </div> -->
+            <td >
+
+              <div class="top_question_container">
+                <div class="question_content question_title">
+                  <%= link_to truncate(question.title, :length => 80), question_path(question.id) %>
+                </div>
+              </div>
+
+              <div class="left_question_container">
+                <% question.tags.each do |tag| %>
+                  <div class="tag"><%= tag.tag %></div>
+                <% end %>
+              </div>
+
+              <div class="right_question_container">
+                <div class="question_content question_time">
+                <% q = question.created_at %>
+                <%= q.strftime("Asked on %d of %B at %I:%M%p") %> 
+                </div>
+              </div>
+
+            </td>
+
         </tr>
+<!--         <tr>
+              <td rowspan="0" class="question question_time">
+                <% q = question.created_at %>
+                <%= q.strftime("Asked on %d of %B at %I:%M%p") %> 
+            </td>
+        </tr> -->
       <% end %>
     </table>
 

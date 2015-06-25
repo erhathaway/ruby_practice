@@ -7,6 +7,13 @@
     <%= f.label :question, class: 'form form_label' %>
     <%= f.text_area :question, class: 'form form_textarea' %>
 
+    <%= f.fields_for @tag do |t| %>
+	    <%= t.label :tag, class: 'form form_label' %>
+	    <%= t.text_field :tag, class: 'form form_textfield' %>
+    <% end %>
+
     <%= f.submit "Ask Question", class: 'form form_button' %>
   <% end %>
+
 </div>
+
