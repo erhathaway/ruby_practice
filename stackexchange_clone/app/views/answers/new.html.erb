@@ -2,7 +2,7 @@
 
 <%= form_for [@question, @answer] do |f| %>
   <%= f.label :answer, class: 'form form_label'%>
-  <%= f.text_field :answer, class: 'form form_textarea' %>
+  <%= f.text_area :answer, class: 'form form_textarea' %>
 
   <%= f.submit "Submit Answer" , class: 'form form_button'%>
 <% end %>

@@ -21,12 +21,13 @@ feature 'user asks a question', %Q{
     visit '/questions/new'
     fill_in 'Title', with: question_title1
     fill_in 'Question', with: question_text1
-
+    # fill_in 'Tag', with: 'hello world'
+    
     click_button 'Ask Question'
 
     visit '/'
 
-    expect(page).to have_content('Moments its musical age explain. But extremity sex now education')
+    expect(page).to have_content('hello new world. where am i? nokogiri? nonsense?')
   end
 
   scenario "ask a question incorrectly" do
@@ -36,7 +37,7 @@ feature 'user asks a question', %Q{
 
     click_button 'Ask Question'
 
-    expect(page).to have_content('Please make the question title longer than 40 characters')
+    expect(page).to have_content('Title is too short (minimum is 40 characters)')
   end
 end
 

@@ -23,15 +23,15 @@ feature "user edits a question", %Q{
 	scenario "edit a question" do
 		question
     visit '/questions'
-    page.first('.question > a').click
+    page.first('.question_content > a').click
     click_link('Edit')
-    # save_and_open_page
-    fill_in 'Title', :with => " "
-    fill_in 'Question', :with => " "
     save_and_open_page
-    click_button 'Update Question'
+    fill_in 'Title', :with => "hello world"
+    fill_in 'Question', :with => " "
 
-    expect(page).to have_content(question_answer1)
+    click_button 'Update Question'
+    # save_and_open_page
+    expect(page).to have_content("hello world")
   end
 
 end

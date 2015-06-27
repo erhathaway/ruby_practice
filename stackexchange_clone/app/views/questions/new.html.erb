@@ -1,5 +1,6 @@
   <div class="title">New Question</div>
 
+
   <%= form_for @question do |f| %>
     <%= f.label :title, class: 'form form_label'%>
     <%= f.text_area :title, class: 'form form_textfield'%>
@@ -7,9 +8,10 @@
     <%= f.label :question, class: 'form form_label' %>
     <%= f.text_area :question, class: 'form form_textarea' %>
 
+
     <%= f.fields_for @tag do |t| %>
 	    <%= t.label :tag, class: 'form form_label' %>
-	    <%= t.text_field :tag, class: 'form form_textfield' %>
+	    <%= t.text_field :tag, class: 'form form_textfield', id: 'question_tag' %>
     <% end %>
 
     <%= f.submit "Ask Question", class: 'form form_button' %>

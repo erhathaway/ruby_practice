@@ -23,7 +23,7 @@ feature "user deletes an answer", %Q{
 
 	scenario "delete an answer" do
     visit '/questions'
-    page.first('.question > a').click
+    page.first('.question_content > a').click
     expect(page).to have_no_content(question_answer1)
     page.find("#answer").click
     fill_in 'Answer', with: question_answer1

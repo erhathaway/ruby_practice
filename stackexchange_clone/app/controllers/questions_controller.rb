@@ -19,19 +19,27 @@ class QuestionsController < ApplicationController
 
 	def create
 		@question = Question.new(question_params)
-		tags = params[:question][:tag].values[0].split(" ")
-
+		@tag = Tag.new
+		if params[:question][:tag]
+			@tag.tag = params[:question][:tag].values[0]
+		end
 
 		if @question.save
-			# binding.pry
-			tags.each do |tag|
-				new_tag = Tag.find_or_create_by(tag: tag)
-				QuestionTag.find_or_create_by(question_id: @question.id, tag_id: new_tag.id)
+			if params[:question][:tag]
+				tags = params[:question][:tag].values[0].split(" ")
+				tags.each do |tag|
+					new_tag = Tag.find_or_create_by(tag: tag)
+					QuestionTag.find_or_create_by(question_id: @question.id, tag_id: new_tag.id)
+				end
 			end
-			flash[:notice] = 'Question added.'
+
 			redirect_to '/questions'
+			flash[:notice] = 'Question added.'
 		else
-			flash[:notice] = @question.errors.full_messages
+			errors = @question.errors.full_messages
+			errors.each do |error|
+				flash[:notice] = error
+			end
 			render :new
 		end
 	end
@@ -73,7 +81,7 @@ class QuestionsController < ApplicationController
 	end
 
 	def format_time(time)
-		time.strftime("Asked on %dth of %B at %I:%M%p")
+		time.strftime("Asked on %d of %B at %I:%M%p")
 	end
 
 	  protected

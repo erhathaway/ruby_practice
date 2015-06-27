@@ -23,7 +23,7 @@ feature "user deletes a question", %Q{
 	scenario "delete a question" do
 		question
     visit '/questions'
-    page.first('.question > a').click
+    page.first('.question_content > a').click
     expect(page).to have_content(question_text)
     click_link('Delete')
     expect(page).to have_no_content(question_text)

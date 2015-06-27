@@ -23,7 +23,7 @@ feature "user answers a question", %Q{
 	scenario "answer a question" do
 		question
     visit '/questions'
-    page.first('.question > a').click
+    page.first('.question_content > a').click
     page.find("#answer").click
 
     fill_in 'Answer', with: question_answer1
@@ -36,7 +36,7 @@ feature "user answers a question", %Q{
   scenario "answers a question incorrectly" do
 		question
     visit '/questions'
-    page.first('.question > a').click
+    page.first('.question_content > a').click
     page.find("#answer").click
 
     fill_in 'Answer', with: question_answer2
